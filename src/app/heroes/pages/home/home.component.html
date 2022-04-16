@@ -1,5 +1,16 @@
-<h1>Heroes App</h1>
-<hr>
+<mat-sidenav-container fullscreen>
 
+    <mat-sidenav #sidenav mode="push">
+        <h1>Sidenav</h1>
+    </mat-sidenav>
 
-<router-outlet></router-outlet>
+    <mat-toolbar>
+        <button mat-icon-button
+                (click)="sidenav.toggle()">
+            <mat-icon>
+                menu
+            </mat-icon>
+        </button>
+    </mat-toolbar>
+
+</mat-sidenav-container>
