@@ -11,32 +11,9 @@
          fxFlex.lg="15"
          fxFlex.sm="30"
         *ngFor="let heroe of heroes">
-        <mat-card >
-            <mat-card-header>
-                <mat-card-title>{{ heroe.superhero }}</mat-card-title>
-                <mat-card-subtitle>{{ heroe.alter_ego }}</mat-card-subtitle>
-            </mat-card-header>
         
-            <img mat-card-image src="assets/heroes/{{heroe.id}}.jpg">
-        
-            <mat-card-content>
-                <h3>{{ heroe.publisher }}</h3>
-                <p>
-                    <strong>First Appearance</strong>{{ heroe.first_appearance }}
-                    <br>
-                    <strong>Character</strong>{{ heroe.characters }}
-                </p>
-            </mat-card-content>
-        
-            <mat-card-actions>
-                <button mat-button color="warn">
-                    Read more...
-                </button>
-                <button mat-button color="accent">
-                    Edit Hero
-                </button>
-            </mat-card-actions>
-        </mat-card>
+        <app-hero-card [heroe]="heroe"></app-hero-card>
+
     </div>
     
 </div>
