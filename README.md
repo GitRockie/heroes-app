@@ -1,3 +1,16 @@
+# Heroes app with json backend server
+     \{^_^}/ hi!
+
+GET: http://localhost:3000/heroes 
+
+Need to install globaly:
+npm install -g json-server
+
+To wake up the server use:
+ json-server --watch db.json
+
+https://www.npmjs.com/package/json-server
+
 # HeroesApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
