@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
 
 # Heroes app with json backend server
+  \{^_^}/ hi!
 
 Need to install globaly:
 npm install -g json-server
