@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class HeroesService {
 
-  constructor() { }
+  constructor( private http: HttpClient) { }
+
+  getHeroes() {
+   return this.http.get(`localhost:3000/heroes`)
+  }
+
+
+
+
+
+
+
+
 }
