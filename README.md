@@ -5,6 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Heroes app with json backend server
      \{^_^}/ hi!
 
+GET: http://localhost:3000/heroes 
+
 Need to install globaly:
 npm install -g json-server
 
