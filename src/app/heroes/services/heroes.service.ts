@@ -16,11 +16,15 @@ export class HeroesService {
   constructor( private http: HttpClient) { }
 
   getHeroes(): Observable<Heroe[]> {
-   return this.http.get<Heroe[]>(`${ this.baseUrl }/heroes`)
+   return this.http.get<Heroe[]>(`${ this.baseUrl }/heroes`);
   }
 
   getHeroById( id: string ): Observable<Heroe> {
     return this.http.get<Heroe>(`${ this.baseUrl }/heroes/${ id }`);
+  }
+
+  getSuggestions( term: string ):Observable<Heroe[]> {
+    return this.http.get<Heroe[]>(`${ this.baseUrl }/heroes?q=${ term }&_limit=6`);
   }
 
 
