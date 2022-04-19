@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+
 import { Heroe, Publisher } from '../../interface/heroes.interface';
 import { HeroesService } from '../../services/heroes.service';
+
 
 @Component({
   selector: 'app-agregar',
@@ -31,9 +35,17 @@ export class AgregarComponent implements OnInit {
 
   }
 
-  constructor( private heroesService: HeroesService) { }
+  constructor( private heroesService: HeroesService,
+               private activatedRoute: ActivatedRoute,
+               private router: Router ) { }
 
   ngOnInit(): void {
+
+    this.activatedRoute.params
+      .pipe(
+        switchMap(({id}) => this.heroesService.getHeroById(id) )
+      )
+        .subscribe( heroe => this.heroe = heroe);
   }
 
   saveHero() {
@@ -42,10 +54,17 @@ export class AgregarComponent implements OnInit {
       return;
     }
 
-    this.heroesService.addHero( this.heroe )
-      .subscribe( resp => {
-        console.log('feedback:', resp );
+    if( this.heroe.id ) {
+      this.heroesService.upgradeHero( this.heroe )
+        .subscribe( heroe => console.log('Upgrading', heroe ) )
+    } else {
+       this.heroesService.addHero( this.heroe )
+        .subscribe( heroe => {
+          this.router.navigate(['/heroes/edit', heroe.id]);
       })
+    }
+
+   
 
   }
 

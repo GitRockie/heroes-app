@@ -32,6 +32,13 @@ export class HeroesService {
      
   }
 
+  upgradeHero( heroe: Heroe ): Observable<Heroe>  {
+    return this.http.put<Heroe>(`${ this.baseUrl }/heroes/${ heroe.id }`, heroe );
+     
+  }
+
+
+
 
 
 
