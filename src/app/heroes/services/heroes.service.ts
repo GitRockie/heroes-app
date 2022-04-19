@@ -27,6 +27,11 @@ export class HeroesService {
     return this.http.get<Heroe[]>(`${ this.baseUrl }/heroes?q=${ term }&_limit=6`);
   }
 
+  addHero( heroe: Heroe ): Observable<Heroe>  {
+    return this.http.post<Heroe>(`${ this.baseUrl }/heroes`, heroe );
+     
+  }
+
 
 
 
