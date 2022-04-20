@@ -9,7 +9,13 @@ import { HeroesService } from '../../services/heroes.service';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
-  styles: [
+  styles: [`
+    img {
+      width: 100%;
+      border-radius: 5px;
+      
+    }
+  `
   ]
 })
 export class AgregarComponent implements OnInit {
@@ -40,6 +46,10 @@ export class AgregarComponent implements OnInit {
                private router: Router ) { }
 
   ngOnInit(): void {
+
+    if( !this.router.url.includes('edit') ) {
+      return;
+    }
 
     this.activatedRoute.params
       .pipe(
