@@ -2,12 +2,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Heroe } from '../interface/heroes.interface';
 
 @Pipe({
-  name: 'image'
+  name: 'image',
+  pure: false
 })
 export class ImagePipe implements PipeTransform {
 
+ 
   transform( heroe: Heroe ): string {
-
+    console.log('pipe image processed');
       
     if( !heroe.id && !heroe.alt_img ){
 
