@@ -37,6 +37,10 @@ export class HeroesService {
      
   }
 
+  deleteHero( id: string ): Observable<any>  {
+    return this.http.delete<any>(`${ this.baseUrl }/heroes/${ id }`);
+     
+  }
 
 
 
