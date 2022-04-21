@@ -22,8 +22,13 @@ export class AuthService {
     return this.http.get<Auth>(`${this.baseUrl}/usuarios/1`)
       .pipe(
         tap( auth =>  this._auth = auth )
-      )
+      );
   }
+
+  logOut() {
+    this._auth = undefined;
+  }
+
 
 
 
