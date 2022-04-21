@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -9,9 +11,17 @@ import { AuthService } from '../../services/auth.service';
   ]
 })
 export class LoginComponent{
+  
+  public formSubmitted = false;
+
+  public registerform = this.fb.group({
+    email: ['test1@gmail.com', [Validators.required, Validators.email] ],
+    password: [ '12345', Validators.required ]
+  });
 
   constructor( private router: Router,
-               private authService: AuthService) { }
+               private authService: AuthService,
+               private fb: FormBuilder) { }
 
   login() {
 
