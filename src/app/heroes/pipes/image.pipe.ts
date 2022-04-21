@@ -9,7 +9,7 @@ export class ImagePipe implements PipeTransform {
 
  
   transform( heroe: Heroe ): string {
-    console.log('pipe image processed');
+    
       
     if( !heroe.id && !heroe.alt_img ){
 
