@@ -36,7 +36,7 @@ export class AuthService {
         );
   }
 
-  login() {
+  login(  ) {
     return this.http.get<Auth>(`${this.baseUrl}/usuarios/1`)
       .pipe(
         tap( auth =>  this._auth = auth ),

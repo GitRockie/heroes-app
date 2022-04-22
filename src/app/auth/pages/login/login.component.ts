@@ -1,22 +1,31 @@
 import { Component } from '@angular/core';
-import { Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: [
+  styles: [`
+    mat-card {
+      max-width: 400px;
+      margin: 2em auto;
+      text-align: center;
+    }
+
+    mat-form-field {
+      display: block;
+    }
+
+  
+  `
   ]
 })
 export class LoginComponent{
-  
-  public formSubmitted = false;
 
-  public registerform = this.fb.group({
-    email: ['test1@gmail.com', [Validators.required, Validators.email] ],
-    password: [ '12345', Validators.required ]
+  miFormulario: FormGroup = this.fb.group({
+    email:    ['test1@test.com', [ Validators.required, Validators.email ]],
+    password: ['123456', [ Validators.required, Validators.minLength(6) ]],
   });
 
   constructor( private router: Router,
